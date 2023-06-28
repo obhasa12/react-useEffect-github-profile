@@ -5,14 +5,16 @@ import ProfileSearchForm from "./ProfileSearchForm";
 const BASE_URL = "https://api.github.com/users"
 
 const ProfileViewerWithSearch = () => {
-    const [username, setUsername] = useState("colt");
+    const [username, setUsername] = useState("nick");
     const [profile, setProfile]= useState({ data: null, isLoading: true });
 
     useEffect(
         function fetchUserOnUsernameChange(){
             async function fetchUser() {
                 const userResult = await axios.get(`${BASE_URL}/${username}`);
-                setProfile({data: userResult.data, isLoading:true})
+                // setProfile({data: userResult.data, isLoading:false});
+                setProfile({data: userResult.data})
+                console.log(userResult.data, profile)
             }
             fetchUser();
         },

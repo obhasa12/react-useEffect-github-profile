@@ -9,7 +9,7 @@ const ProfileSearchForm = ({ tombol }) => {
 
     function handleSubmit(e){
         e.preventDefault();
-        search(term);
+        tombol(term);
         setTerm("")
     }
 
